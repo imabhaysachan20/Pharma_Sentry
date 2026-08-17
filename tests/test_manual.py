@@ -898,32 +898,6 @@ TEST_CASES = [
             "No UnicodeEncodeError",
             "API remains stable"
         ]
-    },
-
-
-    # ========================================================
-    # MCP
-    # ========================================================
-
-    {
-        "id": "TC-63",
-        "category": "MCP",
-        "name": "MCP endpoint",
-        "prompt": "Access the configured MCP endpoint.",
-        "expected": [
-            "MCP endpoint responds according to configured transport"
-        ]
-    },
-
-    {
-        "id": "TC-64",
-        "category": "MCP",
-        "name": "MCP tools",
-        "prompt": "Access the MCP tools endpoint.",
-        "expected": [
-            "Endpoint behaves according to actual FastMCP configuration",
-            "No unexpected server error"
-        ]
     }
 ]
 

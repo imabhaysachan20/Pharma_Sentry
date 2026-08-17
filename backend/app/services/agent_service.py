@@ -1,20 +1,14 @@
 import os
-import sys
 import logging
 import httpx
 import boto3
 from backend.app.core.config import settings
+from backend.app.core.sigv4 import SigV4HttpxAuth
 
 logger = logging.getLogger("PharmaSentryBackend")
 
-# Add PharmaSentryAgent to Python module path for Strands imports
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-agent_pkg_path = os.path.join(PROJECT_ROOT, "pharmasentry", "app", "PharmaSentryAgent")
-if agent_pkg_path not in sys.path:
-    sys.path.append(agent_pkg_path)
 
 def _get_runtime_sigv4_auth():
-    from mcp_client.streamable_http_sigv4 import SigV4HttpxAuth
     try:
         session = boto3.Session()
         credentials = session.get_credentials()

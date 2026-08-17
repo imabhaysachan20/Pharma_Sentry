@@ -6,10 +6,10 @@ class Settings(BaseSettings):
     VERSION: str = "1.0.0"
     
     # Database
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "postgresql://postgres:meiApps_Mmx@127.0.0.1:5432/pharmapp")
+    DATABASE_URL: str = os.getenv("DATABASE_URL", "postgresql://postgres:postgres@127.0.0.1:5432/pharmapp")
     
     # JWT Authentication
-    SECRET_KEY: str = os.getenv("JWT_SECRET", "super-secret-key-for-pharmasentry-12f23497")
+    SECRET_KEY: str = os.getenv("JWT_SECRET", "dev-secret-key-change-in-production")
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7

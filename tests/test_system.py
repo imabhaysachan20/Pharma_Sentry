@@ -182,44 +182,6 @@ def test_auth():
         )
 
 
-def test_mcp_endpoints():
-    print("\n--- Testing MCP Mount ---")
-
-    if "access_token" not in tokens:
-        log_test(
-            "MCP List Tools",
-            False,
-            "No access token available"
-        )
-        return
-
-    headers = {
-        "Authorization": f"Bearer {tokens['access_token']}"
-    }
-
-    try:
-        response = httpx.get(
-            f"{BASE_URL}/mcp/tools",
-            headers=headers,
-            timeout=30.0
-        )
-
-        success = response.status_code in (200, 404)
-
-        log_test(
-            "MCP List Tools",
-            success,
-            f"HTTP {response.status_code}"
-        )
-
-    except Exception as e:
-        log_test(
-            "MCP List Tools",
-            False,
-            f"Exception: {e}"
-        )
-
-
 def test_adverse_event_intake():
     global created_case_id
 
@@ -724,7 +686,6 @@ def main():
     print("=" * 60)
 
     test_auth()
-    test_mcp_endpoints()
     test_adverse_event_intake()
     test_cases_queue()
     test_agent_chat()

@@ -35,7 +35,8 @@ PharmaSentry/
 │       ├── core/                # Core settings, database connection, security
 │       │   ├── config.py        # Centralized Pydantic settings & env configurations
 │       │   ├── database.py      # SQLAlchemy engine, SessionLocal, get_db dependency
-│       │   └── security.py      # JWT creation/verification & bcrypt hashing
+│       │   ├── security.py      # JWT creation/verification & bcrypt hashing
+│       │   └── sigv4.py         # AWS SigV4 authentication handler for httpx
 │       ├── models/              # SQLAlchemy ORM Database Models
 │       │   ├── user.py          # DBUser model
 │       │   ├── session.py       # DBSession model
@@ -54,7 +55,7 @@ PharmaSentry/
 │       │   ├── intake.py        # /intake adverse event parsing endpoint
 │       │   └── cases.py         # /cases queue endpoints
 │       └── main.py              # FastAPI Application assembly & CORS setup
-├── pharmasentry/                # AWS AgentCore & Strands Agent implementation
+├── pharmasentry-agent/          # AWS AgentCore & Strands Agent implementation
 │   ├── agentcore/               # AgentCore CDK infrastructure deployment
 │   └── app/PharmaSentryAgent/   # Strands Agent application logic & tools
 ├── tests/                       # Verification & Test Suites

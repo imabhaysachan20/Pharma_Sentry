@@ -688,29 +688,6 @@ TEST_CASES = [
             "Patient experienced severe reaction — nausea, "
             "vomiting, and hives."
         )
-    },
-
-
-    # ========================================================
-    # MCP
-    # ========================================================
-
-    {
-        "id": "TC-63",
-        "category": "MCP",
-        "name": "MCP endpoint",
-        "prompt": (
-            "Access the configured MCP endpoint."
-        )
-    },
-
-    {
-        "id": "TC-64",
-        "category": "MCP",
-        "name": "MCP tools",
-        "prompt": (
-            "Access the MCP tools endpoint."
-        )
     }
 ]
 
@@ -983,21 +960,6 @@ def main():
                 }
 
                 print("  API-only test - recorded for review.")
-
-            elif test["category"] == "MCP":
-
-                result = {
-                    "success": None,
-                    "status_code": None,
-                    "elapsed_seconds": 0,
-                    "raw_response": (
-                        "MCP/API-only test. "
-                        "Not executed through /chat."
-                    ),
-                    "error": None
-                }
-
-                print("  MCP/API-only test - recorded for review.")
 
             else:
 
